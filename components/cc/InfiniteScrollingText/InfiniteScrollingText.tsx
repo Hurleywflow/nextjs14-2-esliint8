@@ -37,7 +37,7 @@ const InfiniteScrollingTextV1 = (): JSX.Element => {
 			<div className='pointer-events-none absolute -left-1 z-10 h-full w-20 bg-gradient-to-r from-background to-transparent' />
 			<div className='pointer-events-none absolute -right-1 z-10 h-full w-20 bg-gradient-to-l from-background to-transparent' />
 			<div
-				className={`following-tooltip duration-[0.3s] fixed z-[99] flex h-8 w-56 items-center justify-center rounded-3xl bg-primary px-12 py-[1.4rem]  font-bold text-primary-foreground transition-opacity ${
+				className={`following-tooltip duration-[0.4s] fixed z-[99] flex h-8 w-56 items-center justify-center rounded-3xl bg-primary px-12 py-[1.4rem]  font-bold text-primary-foreground transition-opacity ${
 					isHovered ? "opacity-100" : "opacity-0"
 				}`}
 				style={{
