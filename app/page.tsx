@@ -1,11 +1,13 @@
+import CarouselOrientation from "@/components/cc/carousel/CarouselOrientation";
+import Carousel from "@/components/cc/carousel/carousel";
 import { Container } from "@/components/cc/container/container";
-import CarouselOrientation from "@/components/cc/embla-carousel/CarouselOrientation";
-import Carousel from "@/components/cc/embla-carousel/carousel";
 import VerticalParallaxTiltScroll from "@/components/cc/images-utils/verticalScroll/VerticalParallaxTiltScroll";
 import { InfiniteMovingCardsDemo } from "@/components/cc/infinite-moving-cards/InfiniteMovingCardsDemo";
+import Loading from "@/components/cc/loading/Loading";
 import SkewScroll from "@/components/cc/skewScroll/SkewScroll";
 import { Suspense } from "react";
-import Loading from "./loading";
+
+import { CarouselWithThumbnails } from "@/components/cc/carousel/SplideThumbnailsCarousel";
 
 const Home = (): JSX.Element => {
 	// const Home = async (): JSX.Element => {
@@ -40,6 +42,11 @@ const Home = (): JSX.Element => {
 					<div className='sticky top-0 flex h-fit items-center justify-center bg-blue-400'>
 						<Suspense fallback={<Loading />}>
 							<InfiniteMovingCardsDemo />
+						</Suspense>
+					</div>
+					<div className='sticky top-0 flex h-fit items-center justify-center bg-blue-400'>
+						<Suspense fallback={<Loading />}>
+							<CarouselWithThumbnails />
 						</Suspense>
 					</div>
 				</div>

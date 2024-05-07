@@ -9,6 +9,7 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
+import "@splidejs/react-splide/css";
 
 const fontSans = FontSans({
 	subsets: ["latin"],

@@ -12,7 +12,7 @@ import {
 	CarouselThumbsContainer,
 	SliderMainItem,
 	SliderThumbItem,
-} from "@/components/cc/embla-carousel/extension/carousel";
+} from "@/components/cc/carousel/extension/carousel";
 // import Autoplay from "embla-carousel-autoplay";
 // import * as React from "react";
 import { Suspense, useId } from "react";

@@ -118,7 +118,7 @@ function Navbar(): JSX.Element {
 				<Button className='group relative ml-auto flex-1 overflow-hidden rounded-md px-6  transition  sm:flex-initial '>
 					<span className='relative'>Book Now</span>
 					<div className='absolute inset-0 top-[-20px] flex h-[calc(100%+40px)] w-full animate-shine-infinite justify-center blur-md'>
-						<div className='relative h-full w-8 bg-neutral-400 dark:bg-neutral-700' />
+						<div className='relative h-full w-8 bg-neutral-400' />
 					</div>
 				</Button>
 
