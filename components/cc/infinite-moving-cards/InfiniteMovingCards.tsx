@@ -6,7 +6,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
 import React, { Suspense, useCallback, useEffect, useState } from "react";
 
-export const InfiniteMovingCards = ({
+const InfiniteMovingCards = ({
 	items,
 	direction = "left",
 	speed = "slow",
@@ -43,22 +43,20 @@ export const InfiniteMovingCards = ({
 		}
 	}, [direction]);
 
-	const getSpeed = useCallback(() => {
-		if (containerRef.current) {
-			if (speed === "slow") {
-				containerRef.current.style.setProperty("--animation-duration", "200s");
-			} else if (speed === "normal") {
-				containerRef.current.style.setProperty("--animation-duration", "150s");
-			} else {
-				containerRef.current.style.setProperty("--animation-duration", "100s");
-			}
-			// } else if (speed === "normal") {
-			// 	containerRef.current.style.setProperty("--animation-duration", "40s");
-			// } else {
-			// 	containerRef.current.style.setProperty("--animation-duration", "20s");
-			// }
-		}
-	}, [speed]);
+  const getSpeed = useCallback(() => {
+    if (containerRef.current) {
+      switch (speed) {
+        case 'slow':
+          containerRef.current.style.setProperty('--animation-duration', '500s')
+          break
+        case 'fast':
+          containerRef.current.style.setProperty('--animation-duration', '400s')
+          break
+        default:
+          containerRef.current.style.setProperty('--animation-duration', '450s')
+      }
+    }
+  }, [speed])
 
 	const addAnimation = useCallback(() => {
 		if (containerRef.current && scrollerRef.current) {
@@ -69,9 +67,9 @@ export const InfiniteMovingCards = ({
 				scrollerRef.current.appendChild(duplicatedItem);
 			}
 
+			setStart(true);
 			getDirection();
 			getSpeed();
-			setStart(true);
 		}
 	}, [getDirection, getSpeed]);
 
@@ -96,7 +94,7 @@ export const InfiniteMovingCards = ({
 			>
 				{items.map((item, _idx) => (
 					<li
-						className='relative w-[350px] max-w-full shrink-0 overflow-hidden rounded-2xl border border-b-0 border-slate-700 px-8 py-6 md:w-[450px]'
+						className='relative w-[350px] max-w-full shrink-0 overflow-hidden rounded-md border border-b-0 border-slate-700 px-8 py-6 md:w-[450px]'
 						style={{
 							background:
 								"linear-gradient(180deg, var(--slate-800), var(--slate-900)",
@@ -128,5 +126,7 @@ export const InfiniteMovingCards = ({
 				))}
 			</ul>
 		</div>
+		
 	);
 };
+export default InfiniteMovingCards;

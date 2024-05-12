@@ -1,6 +1,6 @@
 import { Skeleton } from "@/components/ui/skeleton";
 const Loading = (): JSX.Element => (
-	<div className='flex size-full items-center justify-center bg-background bg-grid-black/[0.2] dark:bg-grid-white/[0.2]'>
+	<div className='flex h-auto w-full items-center justify-center bg-background bg-grid-black/[0.2] dark:bg-grid-white/[0.2]'>
 		{/* Radial gradient for the container to give a faded look */}
 		<div className='pointer-events-none absolute inset-0 flex items-center justify-center bg-background [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]' />
 		<div className='grid w-full max-w-screen-2xl grid-cols-1 items-center justify-center gap-10 bg-background p-10 md:grid-cols-2'>

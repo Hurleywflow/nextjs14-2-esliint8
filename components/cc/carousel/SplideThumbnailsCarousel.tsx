@@ -5,9 +5,8 @@
 
 import LoadingImage from "@/components/cc/loading-image/LoadingImage";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Splide, SplideSlide } from '@splidejs/react-splide';
+import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { Suspense, useEffect, useId, useRef } from "react";
-
 
 export const CarouselWithThumbnails = (): JSX.Element => {
 	type SplideInstance = {
@@ -80,7 +79,7 @@ export const CarouselWithThumbnails = (): JSX.Element => {
 			>
 				{slides.map((slide, _index) => (
 					<SplideSlide key={keyIndex}>
-						<div className='relative mb-4 flex aspect-square w-full  cursor-grab flex-col items-center md:aspect-video'>
+						<div className='relative mb-4 flex aspect-square w-full cursor-grab flex-col items-center overflow-hidden rounded-md md:aspect-video'>
 							<Suspense
 								fallback={
 									<div className='flex size-full flex-col items-center justify-center space-y-3 bg-background'>
@@ -97,7 +96,7 @@ export const CarouselWithThumbnails = (): JSX.Element => {
 							>
 								<LoadingImage
 									src={slide.imageUrl}
-									className='mb-4 size-full overflow-hidden rounded-lg object-cover '
+									className='mb-4 size-full  object-cover '
 									alt={slide.title}
 									sizes='max-width: 640px) 420px, (max-width: 768px) 720px, (max-width: 1024px) 800px, (max-width: 1280px) 900px, (max-width: 1536px) 1024px, (max-width: 2000px) 1280px, (max-width: 2560px) 1500px, 1500px'
 								/>
@@ -135,7 +134,7 @@ export const CarouselWithThumbnails = (): JSX.Element => {
 			>
 				{slides.map((slide, _index) => (
 					<SplideSlide key={keyIndex1} className=''>
-						<div className='relative flex  aspect-video w-full flex-col items-center'>
+						<div className='relative flex  aspect-video w-full flex-col items-center overflow-hidden rounded-md'>
 							<Suspense
 								fallback={
 									<div className='flex size-full flex-col items-center justify-center space-y-3 bg-background'>
@@ -152,7 +151,7 @@ export const CarouselWithThumbnails = (): JSX.Element => {
 							>
 								<LoadingImage
 									src={slide.imageUrl}
-									className='size-full overflow-hidden rounded-lg object-cover '
+									className='size-full object-cover '
 									alt={slide.title}
 									sizes='100px'
 								/>

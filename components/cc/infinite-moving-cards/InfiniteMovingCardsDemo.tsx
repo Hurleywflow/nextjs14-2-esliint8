@@ -1,5 +1,6 @@
 "use client";
-import { InfiniteMovingCards } from "./InfiniteMovingCards";
+import { useMemo } from "react";
+import InfiniteMovingCards from "./InfiniteMovingCards";
 type CardType = {
 	src: string;
 	id: number;
@@ -29,24 +30,30 @@ const testimonials: CardType[] = [
 ];
 
 export function InfiniteMovingCardsDemo(): JSX.Element {
+	const InfiniteMovingCardsMemo1 = useMemo(() => {
+		return (
+			<InfiniteMovingCards
+				items={testimonials}
+				direction='right'
+				speed='slow'
+			/>
+		);
+	}, []);
+	const InfiniteMovingCardsMemo2 = useMemo(() => {
+		return (
+			<InfiniteMovingCards items={testimonials} direction='left' speed='slow' />
+		);
+	}, []);
 	return (
 		<div className='relative w-full'>
 			<div className='pointer-events-none absolute -left-1 z-20 h-full w-40 bg-gradient-to-r from-background to-transparent' />
 			<div className='pointer-events-none absolute -right-1 z-20 h-full w-40 bg-gradient-to-l from-background to-transparent' />
-			<div className=' relative flex h-fit w-full flex-col items-center justify-center overflow-hidden rounded-md  antialiased '>
-				<InfiniteMovingCards
-					items={testimonials}
-					direction='right'
-					speed='slow'
-				/>
+			<div className=' relative flex h-fit w-full flex-col items-center justify-center overflow-hidden rounded-md antialiased '>
+				{InfiniteMovingCardsMemo1}
 			</div>
 			<div className='border-t border-dashed border-border' />
-			<div className=' relative flex h-fit w-full flex-col items-center justify-center overflow-hidden rounded-md  antialiased '>
-				<InfiniteMovingCards
-					items={testimonials}
-					direction='left'
-					speed='slow'
-				/>
+			<div className=' relative flex h-fit w-full flex-col items-center justify-center overflow-hidden rounded-md antialiased '>
+				{InfiniteMovingCardsMemo2}
 			</div>
 		</div>
 	);

@@ -18,33 +18,33 @@ const Home = (): JSX.Element => {
 		<main className='m-0 h-fit w-full p-0 '>
 			<Container>
 				<div className='relative w-full'>
-					<div className='sticky top-0 flex h-fit items-center justify-center bg-red-400'>
+					<div className='sticky top-0 flex h-fit min-h-screen items-center justify-center bg-red-400'>
 						<Suspense fallback={<Loading />}>
 							<Carousel />
 						</Suspense>
 					</div>
 
-					<div className='sticky top-0 flex h-fit items-center justify-center bg-blue-400'>
+					<div className='sticky top-0 flex h-fit min-h-screen items-center justify-center bg-blue-400'>
 						<Suspense fallback={<Loading />}>
 							<SkewScroll />
 						</Suspense>
 					</div>
-					<div className='sticky top-0 flex h-fit items-center justify-center bg-blue-400'>
+					<div className='sticky top-0 flex h-fit min-h-screen items-center justify-center bg-blue-400'>
 						<Suspense fallback={<Loading />}>
 							<CarouselOrientation />
 						</Suspense>
 					</div>
-					<div className='sticky top-0 flex h-fit items-center justify-center bg-blue-400'>
+					<div className='sticky top-0 flex h-fit min-h-screen items-center justify-center bg-blue-400'>
 						<Suspense fallback={<Loading />}>
 							<VerticalParallaxTiltScroll />
 						</Suspense>
 					</div>
-					<div className='sticky top-0 flex h-fit items-center justify-center bg-blue-400'>
+					<div className='sticky top-0 flex h-fit min-h-screen items-center justify-center bg-blue-400'>
 						<Suspense fallback={<Loading />}>
 							<InfiniteMovingCardsDemo />
 						</Suspense>
 					</div>
-					<div className='sticky top-0 flex h-fit items-center justify-center bg-blue-400'>
+					<div className='sticky top-0 flex h-fit min-h-screen items-center justify-center bg-blue-400'>
 						<Suspense fallback={<Loading />}>
 							<CarouselWithThumbnails />
 						</Suspense>
