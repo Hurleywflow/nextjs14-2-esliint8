@@ -15,7 +15,7 @@ const Home = (): JSX.Element => {
 	// 		setTimeout(resolve, 5000);
 	// 	});
 	return (
-		<main className='m-0 h-fit w-full overflow-hidden p-0'>
+		<main className='m-0 h-fit w-full p-0'>
 			<Container>
 				<div className='relative w-full'>
 					<div className='sticky top-0 flex h-fit min-h-screen w-full items-center justify-center bg-red-400'>
