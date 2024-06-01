@@ -4,7 +4,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import { Suspense, useRef } from "react";
+import { Suspense, useId, useRef } from "react";
 
 type CardType = {
 	src: string;
@@ -27,38 +27,45 @@ const ParallaxTiltScroll = ({
 
 	const translateYFirst = useTransform(scrollYProgress, [0, 1], [0, -200]);
 	const translateXFirst = useTransform(scrollYProgress, [0, 1], [0, -200]);
-	const rotateXFirst = useTransform(scrollYProgress, [0, 1], [0, -20]);
+	const rotateXFirst = useTransform(scrollYProgress, [0, 1], [0, -2]);
+	// const rotateXFirst = useTransform(scrollYProgress, [0, 1], [0, -20]);
 
 	const translateYThird = useTransform(scrollYProgress, [0, 1], [0, -200]);
 	const translateXThird = useTransform(scrollYProgress, [0, 1], [0, 200]);
-	const rotateXThird = useTransform(scrollYProgress, [0, 1], [0, 20]);
+	const rotateXThird = useTransform(scrollYProgress, [0, 1], [0, 2]);
+	// const rotateXThird = useTransform(scrollYProgress, [0, 1], [0, 20]);
 
 	const third = Math.ceil(images.length / 3);
 
 	const firstPart = images.slice(0, third);
 	const secondPart = images.slice(third, 2 * third);
 	const thirdPart = images.slice(2 * third);
+	const keyID1 = useId();
+	const keyID2 = useId();
+	const keyID3 = useId();
 
 	return (
 		<div
-			className={cn("h-[40rem] items-start overflow-y-auto w-full", className)}
+			className={cn(
+				"h-[40rem] relative items-start overflow-y-auto w-full",
+				className,
+			)}
 			ref={gridRef}
 		>
 			{/* <div className='pointer-events-none sticky -top-1 z-10 h-20 w-full bg-gradient-to-b from-background to-transparent' /> */}
 			<div
-				className='mx-auto grid w-full  items-start gap-10 px-10 py-40 lg:grid-cols-3'
+				className='mx-auto grid w-full grid-cols-10  items-start gap-1 px-1 py-2 md:gap-5 md:px-10 '
 				ref={gridRef}
 			>
-				<div className='grid gap-10'>
-					{firstPart.map((el, idx) => (
+				<div className='col-span-4 grid gap-1 md:col-span-3 md:gap-5'>
+					{firstPart.map((el, _idx) => (
 						<motion.div
 							style={{
 								y: translateYFirst,
 								x: translateXFirst,
 								rotateZ: rotateXFirst,
 							}} // Apply the translateY motion value here
-							// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-							key={`grid-1${idx}`}
+							key={keyID1}
 						>
 							<Suspense
 								fallback={
@@ -73,7 +80,7 @@ const ParallaxTiltScroll = ({
 							>
 								<Image
 									src={el.src}
-									className='!m-0 h-80 w-full gap-10 rounded-lg object-cover object-left-top !p-0'
+									className='!m-0 h-80 w-full gap-10 rounded-lg object-cover object-center !p-0'
 									alt='Carousel image'
 									height={el.height}
 									width={el.width}
@@ -83,17 +90,12 @@ const ParallaxTiltScroll = ({
 						</motion.div>
 					))}
 				</div>
-				<div className='grid gap-10'>
-					{secondPart.map((el, idx) => (
-						<motion.div
-							key={`grid-2${
-								// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-								idx
-							}`}
-						>
+				<div className='col-span-6 grid  gap-1 md:col-span-4 md:gap-5'>
+					{secondPart.map((el, _idx) => (
+						<motion.div key={keyID2}>
 							{/* <Image
 								src={el}
-								className='!m-0 h-80 w-full gap-10 rounded-lg object-cover object-left-top !p-0'
+								className='!m-0 h-80 w-full gap-10 rounded-lg object-cover object-center !p-0'
 								height='400'
 								width='400'
 								alt='thumbnail'
@@ -111,7 +113,7 @@ const ParallaxTiltScroll = ({
 							>
 								<Image
 									src={el.src}
-									className='!m-0 h-80 w-full gap-10 rounded-lg object-cover object-left-top !p-0'
+									className='!m-0 h-80 w-full gap-10 rounded-lg object-cover object-center !p-0'
 									alt='Carousel image'
 									height={el.height}
 									width={el.width}
@@ -121,18 +123,15 @@ const ParallaxTiltScroll = ({
 						</motion.div>
 					))}
 				</div>
-				<div className='grid gap-10'>
-					{thirdPart.map((el, idx) => (
+				<div className='col-span-10 mt-52 grid gap-1  md:col-span-3 md:mt-0 md:gap-5'>
+					{thirdPart.map((el, _idx) => (
 						<motion.div
 							style={{
 								y: translateYThird,
 								x: translateXThird,
 								rotateZ: rotateXThird,
 							}}
-							key={`grid-3${
-								// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-								idx
-							}`}
+							key={keyID3}
 						>
 							<Suspense
 								fallback={
@@ -147,7 +146,7 @@ const ParallaxTiltScroll = ({
 							>
 								<Image
 									src={el.src}
-									className='!m-0 h-80 w-full gap-10 rounded-lg object-cover object-left-top !p-0'
+									className='!m-0 h-80 w-full gap-10 rounded-lg object-cover object-center !p-0'
 									alt='Carousel image'
 									height={el.height}
 									width={el.width}

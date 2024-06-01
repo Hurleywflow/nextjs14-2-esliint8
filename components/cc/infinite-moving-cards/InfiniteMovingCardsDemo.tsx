@@ -51,7 +51,7 @@ export function InfiniteMovingCardsDemo(): JSX.Element {
 			<div className=' relative flex h-fit w-full flex-col items-center justify-center overflow-hidden rounded-md antialiased '>
 				{InfiniteMovingCardsMemo1}
 			</div>
-			<div className='border-t border-dashed border-border' />
+			<div className='border-t-2 border-dashed border-border' />
 			<div className=' relative flex h-fit w-full flex-col items-center justify-center overflow-hidden rounded-md antialiased '>
 				{InfiniteMovingCardsMemo2}
 			</div>

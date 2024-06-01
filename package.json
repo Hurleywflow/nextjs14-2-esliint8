@@ -6,9 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "npx oxlint && npx eslint",
     "lint:debug": "eslint . --debug",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "oxc": "npx oxlint && npx eslint",
+    "biome": "bunx @biomejs/biome check --apply ./"
   },
   "dependencies": {
     "@next/eslint-plugin-next": "^14.2.2",
@@ -32,6 +34,7 @@
     "eslint-config-async": "^2.0.2",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-oxlint": "^0.2.9",
     "eslint-plugin-react": "^7.34.1",
     "framer-motion": "^11.1.7",
     "gsap": "^3.12.5",
@@ -48,7 +51,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.7.0",
-    "@types/node": "^20",
+    "@types/node": "^20.12.12",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "8.56.0",
@@ -57,6 +60,7 @@
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-tailwindcss": "^3.15.1",
+    "knip": "^5.16.0",
     "postcss": "^8",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.14",

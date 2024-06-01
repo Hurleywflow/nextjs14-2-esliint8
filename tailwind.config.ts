@@ -29,7 +29,7 @@ function addVariablesForColors({ addBase, theme }: any): void {
 }
 
 const config = {
-	darkMode: ["class"],
+	darkMode: "class",
 	content: [
 		"./pages/**/*.{js,ts,jsx,tsx,mdx}",
 		"./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -117,7 +117,7 @@ const config = {
 
 					"100%": {
 						transform:
-							"rotateX(20deg) rotateZ(-20deg) skewX(20deg) translateZ(0) translateY(-100%)",
+							"rotateX(20deg) rotateZ(-20deg) skewX(20deg) translateZ(0) translateY(-2000%)",
 					},
 				},
 				// infinite scrolling card
@@ -140,19 +140,61 @@ const config = {
 						transform: "skew(-12deg) translateX(100%)",
 					},
 				},
+				// aurora animation hero background
+				aurora: {
+					from: {
+						backgroundPosition: "50% 50%, 50% 50%",
+					},
+					to: {
+						backgroundPosition: "350% 50%, 350% 50%",
+					},
+				},
+				// Magicui marquee
+				marquee: {
+					from: { transform: "translateX(0)" },
+					to: { transform: "translateX(calc(-100% - var(--gap)))" },
+				},
+				"marquee-vertical": {
+					from: { transform: "translateY(0)" },
+					to: { transform: "translateY(calc(-100% - var(--gap)))" },
+				},
+				// Text skimmer
+				shimmer: {
+					"0%, 90%, 100%": {
+						"background-position": "calc(-100% - var(--shimmer-width)) 0",
+					},
+					"30%, 60%": {
+						"background-position": "calc(100% + var(--shimmer-width)) 0",
+					},
+				},
+				// Border beam
+				"border-beam": {
+					"100%": {
+						"offset-distance": "100%",
+					},
+				},
 			},
 			animation: {
 				"accordion-down": "accordion-down 0.2s ease-out",
 				"accordion-up": "accordion-up 0.2s ease-out",
 				// Skew carousel
-				"skew-scroll": "skew-scroll 7s infinite linear",
+				"skew-scroll": "skew-scroll 90s linear infinite",
 				// infinite scrolling card
 				scroll:
 					"scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
 				//background clip text
 				slowpan: "slowpan 30s alternate ease-in-out infinite",
 				// button shine animation
-				"shine-infinite": "shine-infinite 7s ease-in-out infinite",
+				"shine-infinite": "shine-infinite 5s ease-in-out infinite",
+				// aurora animation hero background
+				aurora: "aurora 60s linear infinite",
+				// Magicui marquee
+				marquee: "marquee var(--duration) linear infinite",
+				"marquee-vertical": "marquee-vertical var(--duration) linear infinite",
+				// Text skimmer
+				shimmer: "shimmer 8s infinite",
+				// Border beam
+				"border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
 			},
 		},
 	},

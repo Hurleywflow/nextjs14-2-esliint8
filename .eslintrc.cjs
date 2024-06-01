@@ -56,6 +56,7 @@ const config = {
 				"async",
 				"async/node",
 				"async/typescript",
+				"plugin:oxlint/recommended",
 			],
 			parser: "@typescript-eslint/parser",
 			plugins: [
@@ -98,7 +99,7 @@ const config = {
 						".tsx",
 						".d.ts",
 						".js",
-						".jsx"
+						".jsx",
 					],
 				},
 				"import/resolver": {
@@ -190,7 +191,7 @@ const config = {
 				"@typescript-eslint/return-await": "error",
 				"no-unneeded-ternary": "error",
 				"no-restricted-imports": [
-					"error",
+					"off",
 					{
 						patterns: ["../"],
 					},
@@ -212,7 +213,7 @@ const config = {
 					},
 				],
 				"@typescript-eslint/strict-boolean-expressions": [
-					"error",
+					"off",
 					{
 						allowString: false,
 						allowNumber: false,
@@ -251,6 +252,15 @@ const config = {
 				"@typescript-eslint/no-unnecessary-type-assertion": "error",
 
 				// React
+				"no-restricted-syntax": [
+					"warn",
+					{
+						selector:
+							"JSXElement[openingElement.name.name='TwoColumnLayout']:not([children.1.openingElement.name.name='Meta']), JSXElement[openingElement.name.name='TwoColumnLayout']:not([children.3.openingElement.name.name='main']), JSXElement[openingElement.name.name='TwoColumnLayout']:not([children.5.openingElement.name.name='aside'])",
+						message:
+							"The TwoColumLayout component must contain only <Meta />, <main> and <aside> elements as children, in exactly this order",
+					},
+				],
 				"react/prop-types": "off",
 				"react/jsx-key": "error",
 				"react/jsx-no-target-blank": "error",
@@ -340,7 +350,7 @@ module.exports = config;
 // 	{
 // 		rules: {
 // 			"@typescript-eslint/no-unused-vars": [
-// 				"error",
+// 				"warn",
 // 				{ argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
 // 			],
 // 			"@typescript-eslint/consistent-type-imports": [

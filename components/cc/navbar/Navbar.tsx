@@ -16,7 +16,8 @@ import { Button } from "@/components/ui/button";
 // } from "@/components/ui/dropdown-menu";
 // import { Inputsize } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Package2 } from "lucide-react";
+import { Menu } from "lucide-react";
+import Images from "next/image";
 // import { CircleUser, Menu, Package2 } from "lucide-react";
 import Link from "next/link";
 
@@ -26,40 +27,48 @@ function Navbar(): JSX.Element {
 			<nav className='hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6'>
 				{/* Navbar items */}
 				<Link
-					href='https://www.netcodedev.com'
+					href='/'
 					className='mr-10 flex items-center gap-2 text-lg font-semibold md:text-base'
 				>
-					<Package2 className='size-6' />
-					<span className='sr-only'>Acme Inc</span>
+					{/* <Package2 className='size-6' /> */}
+					<div className='relative size-10 overflow-hidden rounded-full'>
+						<Images
+							src='/Images/logo/logo.jpg'
+							alt='Nail Studio'
+							className=''
+							fill
+						/>
+					</div>
+					<span className='sr-only'>Nail Studio</span>
 				</Link>
 				{/* Menu items */}
 				<LineTabs />
 				{/* <Link
-					href='https://www.netcodedev.com/en'
+					href='https://www.nailstudiopro.com/'
 					className='ml-20 text-foreground transition-colors hover:text-foreground'
 				>
 					Dashboard
 				</Link>
 				<Link
-					href='https://www.netcodedev.com/en'
+					href='https://www.nailstudiopro.com/'
 					className='text-muted-foreground transition-colors hover:text-foreground'
 				>
 					Orders
 				</Link>
 				<Link
-					href='https://www.netcodedev.com/en'
+					href='https://www.nailstudiopro.com/'
 					className='text-muted-foreground transition-colors hover:text-foreground'
 				>
 					Products
 				</Link>
 				<Link
-					href='https://www.netcodedev.com/en'
+					href='https://www.nailstudiopro.com/'
 					className='text-muted-foreground transition-colors hover:text-foreground'
 				>
 					Customers
 				</Link>
 				<Link
-					href='https://www.netcodedev.com/en'
+					href='https://www.nailstudiopro.com/'
 					className='text-muted-foreground transition-colors hover:text-foreground'
 				>
 					Analytics
@@ -75,51 +84,58 @@ function Navbar(): JSX.Element {
 				<SheetContent side='left'>
 					<nav className='grid gap-6 text-lg font-medium'>
 						<Link
-							href='https://www.netcodedev.com/en'
+							href='/'
 							className='flex items-center gap-2 text-lg font-semibold'
 						>
-							<Package2 className='size-6' />
-							<span className='sr-only'>Acme Inc</span>
+							<div className='relative size-10 overflow-hidden rounded-full'>
+								<Images
+									src='/Images/logo/logo.jpg'
+									alt='Nail Studio'
+									className=''
+									fill
+								/>
+							</div>
+							<span className='sr-only'>Nail Studio</span>
+						</Link>
+						<Link href='/#home' className='hover:text-foreground'>
+							Home
 						</Link>
 						<Link
-							href='https://www.netcodedev.com/en'
-							className='hover:text-foreground'
-						>
-							Dashboard
-						</Link>
-						<Link
-							href='https://www.netcodedev.com/en'
+							href='/#manicure'
 							className='text-muted-foreground hover:text-foreground'
 						>
-							Orders
+							Manicure
 						</Link>
+
 						<Link
-							href='https://www.netcodedev.com/en'
+							href='/#pedicure'
 							className='text-muted-foreground hover:text-foreground'
 						>
-							Products
+							Pedicure
 						</Link>
 						<Link
-							href='https://www.netcodedev.com/en'
+							href='/#nail-art'
 							className='text-muted-foreground hover:text-foreground'
 						>
-							Customers
+							Nail Art
 						</Link>
 						<Link
-							href='https://www.netcodedev.com/en'
+							href='/#contact'
 							className='text-muted-foreground hover:text-foreground'
 						>
-							Analytics
+							Contact
 						</Link>
 					</nav>
 				</SheetContent>
 			</Sheet>
 			<div className='flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4'>
 				<Button className='group relative ml-auto flex-1 overflow-hidden rounded-md px-6  transition  sm:flex-initial '>
-					<span className='relative'>Book Now</span>
-					<div className='absolute inset-0 top-[-20px] flex h-[calc(100%+40px)] w-full animate-shine-infinite justify-center blur-md'>
-						<div className='relative h-full w-8 bg-neutral-400' />
-					</div>
+					<Link href='tel:+12565462553'>
+						<span className='relative'>Book Now</span>
+						<div className='absolute inset-0 top-[-20px] flex h-[calc(100%+40px)] w-full animate-shine-infinite justify-center blur-md'>
+							<div className='relative h-full w-8 bg-neutral-400' />
+						</div>
+					</Link>
 				</Button>
 
 				<ThemeSwitcher />

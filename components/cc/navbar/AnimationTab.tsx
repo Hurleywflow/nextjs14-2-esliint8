@@ -1,66 +1,91 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { useState } from "react";
+const tabs = [
+	{
+		text: "Home",
+		link: "/",
+	},
+	{
+		text: "Manicure",
+		link: "/#manicure",
+	},
+	{
+		text: "Nail Art",
+		link: "/#nail-art",
+	},
+	{
+		text: "Contact",
+		link: "/#contact",
+	},
+];
+// const tabs = ["Home", "Docs", "Components", "Hooks"];
 
-const tabs = ["Home", "Docs", "Components", "Hooks"];
+type TabProps = {
+	text: string;
+	selected: boolean;
+	setSelected: (text: string) => void;
+	customID?: string;
+};
 
-const Tab = ({
+export const Tab = ({
 	text,
 	selected,
 	setSelected,
 	customID,
-}: {
-	text: string;
-	selected: boolean;
-	setSelected: (value: string) => void;
-	customID: string;
-}): JSX.Element => {
+}: TabProps): JSX.Element => {
 	return (
 		<Button
 			onClick={() => {
 				setSelected(text);
 			}}
-			className={`${
-				selected ? "text-foreground" : "text-muted-foreground"
-			} relative rounded-md px-2 py-1 transition-colors duration-300`}
-			variant='link'
+			// variant='secondary'
+			variant={selected ? "secondary" : "ghost"}
+			className={` ${
+				selected ? "text-background" : " hover:text-muted-foreground"
+			} relative rounded-md  px-2 py-1 text-foreground transition-colors duration-300 focus-within:outline-red-500/50`}
 		>
 			<span className='relative z-10'>{text}</span>
 			{selected && (
 				<motion.div
 					className='absolute left-0 top-0 flex size-full items-end justify-center'
-					layoutId={`${customID}linetab`}
-					transition={{ type: "spring", duration: 0.7, bounce: 0.5, delay: 0 }}
+					// biome-ignore lint/style/useTemplate: <explanation>
+					layoutId={customID + "linetab"}
+					transition={{ type: "spring", duration: 0.7, bounce: 0.6, delay: 0 }}
 				>
-					<span className='z-0 h-[3px] w-3/5 rounded-t-full bg-card-foreground' />
+					<span className='z-0 h-[3px] w-4/5 rounded-t-full bg-gradient-to-br from-primary to-secondary' />
 				</motion.div>
 			)}
 		</Button>
 	);
 };
-const LineTabs = ({
-	center,
-	customID,
-}: { center?: boolean; customID?: string }): JSX.Element => {
-	const [selected, setSelected] = useState(tabs[0]);
+
+type LineTabProps = {
+	center?: boolean;
+	customID?: string;
+};
+
+const LineTabs = ({ center, customID }: LineTabProps): JSX.Element => {
+	const [selected, setSelected] = useState<string>(tabs[0].text);
 	return (
 		<div
-			className={`${
-				center ?? false ? "justify-center " : ""
-			} flex flex-row items-center gap-6`}
+			className={` ${
+				center ? "justify-center " : ""
+			} flex items-center gap-2 border-b border-border`}
 		>
-			{tabs.map((tab, _index) => {
-				return (
+			{tabs.map((tab) => (
+				<Link href={tab.link} key={tab.text}>
 					<Tab
-						text={tab}
-						selected={selected === tab}
+						text={tab.text}
+						selected={selected === tab.text}
 						setSelected={setSelected}
-						key={tab}
-						customID={customID ?? ""}
+						// key={tab.text}
+						customID={customID}
 					/>
-				);
-			})}
+				</Link>
+			))}
 		</div>
 	);
 };

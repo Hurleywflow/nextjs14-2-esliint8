@@ -4,11 +4,20 @@
     "attributePosition": "auto",
     "enabled": true,
     "formatWithErrors": false,
-    "ignore": ["./.next"],
     "indentStyle": "tab",
     "indentWidth": 2,
     "lineEnding": "lf",
-    "lineWidth": 80
+    "lineWidth": 80,
+    "ignore": [
+      "node_modules",
+      "./.next",
+      "dist",
+      ".nuxt",
+      ".wrangler",
+      ".react-email",
+      ".contentlayer",
+      "meta"
+    ]
   },
   "javascript": {
     "formatter": {
@@ -37,20 +46,40 @@
         "useSortedClasses": "off"
       },
       "style": {
-        "useBlockStatements": "error"
+        "noNonNullAssertion": "off",
+        "useImportType": "error",
+        "useExportType": "error"
       },
       "suspicious": {
         "noConsoleLog": "error",
         "noExplicitAny": "off"
       },
       "correctness": {
-        "noUnusedVariables": "error",
-        "noUnusedImports": "error"
+        "noUnusedVariables": "warn",
+        "noUnusedImports": "warn"
       }
-    }
+    },
+    "ignore": [
+      "node_modules",
+      "./.next",
+      "dist",
+      ".wrangler",
+      ".react-email",
+      ".contentlayer",
+      "meta"
+    ]
   },
   "organizeImports": {
-    "enabled": true
+    "enabled": true,
+    "ignore": [
+      "node_modules",
+      "./.next",
+      "dist",
+      ".nuxt",
+      ".wrangler",
+      ".react-email",
+      ".contentlayer"
+    ]
   },
   "vcs": {
     "clientKind": "git",

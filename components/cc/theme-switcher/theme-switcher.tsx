@@ -17,11 +17,11 @@ function ThemeSwitcher(): React.ReactElement | null {
 	return (
 		<Button
 			onClick={toggleTheme}
-			variant='ghost'
-			className='rounded-full'
+			variant='secondary'
+			className='size-10 rounded-md p-0'
 			aria-label='Toggle theme'
 			type='button'
-			size='icon'
+			size='default'
 		>
 			{isDark ? (
 				// biome-ignore lint/a11y/noSvgWithoutTitle: <explanation>

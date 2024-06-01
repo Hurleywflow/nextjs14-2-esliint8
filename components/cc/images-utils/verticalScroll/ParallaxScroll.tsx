@@ -1,11 +1,11 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-import { Skeleton } from '@/components/ui/skeleton';
+import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import { Suspense, useRef } from "react";
+import { Suspense, useId, useRef } from "react";
 
 type CardType = {
 	src: string;
@@ -43,6 +43,9 @@ const ParallaxScroll = ({
 	const secondPart = images.slice(third, 2 * third);
 	const thirdPart = images.slice(2 * third);
 
+		const keyID1 = useId();
+	const keyID2 = useId();
+	const keyID3 = useId();
 	return (
 		<div
 			className={cn(
@@ -54,17 +57,14 @@ const ParallaxScroll = ({
 			{/* <div className='pointer-events-none sticky -top-1 z-10 h-20 w-full bg-gradient-to-b from-background to-transparent' /> */}
 
 			<div
-				className='mx-auto grid w-full grid-cols-1  items-start gap-10 px-10 py-40 md:grid-cols-2 lg:grid-cols-3'
+				className='mx-auto grid w-full grid-cols-10  items-start gap-1 px-1 py-2 md:gap-5 md:px-10 '
 				ref={gridRef}
 			>
-				<div className='grid gap-10'>
-					{firstPart.map((el, idx) => (
+				<div className='col-span-4 grid gap-1 md:col-span-3 md:gap-5'>
+					{firstPart.map((el, _idx) => (
 						<motion.div
 							style={{ y: translateFirst }} // Apply the translateY motion value here
-							key={`grid-1${
-								// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-								idx
-							}`}
+							key={keyID1}
 						>
 							<Suspense
 								fallback={
@@ -79,7 +79,7 @@ const ParallaxScroll = ({
 							>
 								<Image
 									src={el.src}
-									className='!m-0 h-80 w-full gap-10 rounded-lg object-cover object-left-top !p-0'
+									className='!m-0 h-80 w-full gap-10 rounded-lg object-cover object-center !p-0'
 									alt='Carousel image'
 									height={el.height}
 									width={el.width}
@@ -89,14 +89,11 @@ const ParallaxScroll = ({
 						</motion.div>
 					))}
 				</div>
-				<div className='grid gap-10'>
+				<div className='col-span-6 grid  gap-1 md:col-span-4 md:gap-5'>
 					{secondPart.map((el, idx) => (
 						<motion.div
 							style={{ y: translateSecond }}
-							key={`grid-2${
-								// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-								idx
-							}`}
+							key={keyID2}
 						>
 							<Suspense
 								fallback={
@@ -111,7 +108,7 @@ const ParallaxScroll = ({
 							>
 								<Image
 									src={el.src}
-									className='!m-0 h-80 w-full gap-10 rounded-lg object-cover object-left-top !p-0'
+									className='!m-0 h-80 w-full gap-10 rounded-lg object-cover object-center !p-0'
 									alt='Carousel image'
 									height={el.height}
 									width={el.width}
@@ -121,7 +118,7 @@ const ParallaxScroll = ({
 						</motion.div>
 					))}
 				</div>
-				<div className='grid gap-10'>
+				<div className='col-span-10 mt-52 grid gap-1  md:col-span-3 md:mt-0 md:gap-5'>
 					{thirdPart.map((el, idx) => (
 						<motion.div
 							style={{ y: translateThird }}
@@ -143,7 +140,7 @@ const ParallaxScroll = ({
 							>
 								<Image
 									src={el.src}
-									className='!m-0 h-80 w-full gap-10 rounded-lg object-cover object-left-top !p-0'
+									className='!m-0 h-80 w-full gap-10 rounded-lg object-cover object-center !p-0'
 									alt='Carousel image'
 									height={el.height}
 									width={el.width}

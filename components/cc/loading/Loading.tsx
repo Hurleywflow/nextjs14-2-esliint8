@@ -8,7 +8,7 @@ type Props = {
 const Loading = (className: Props): JSX.Element => (
 	<div
 		className={cn(
-			"flex h-auto w-full items-center justify-center bg-background bg-grid-black/[0.2] dark:bg-grid-white/[0.2]",
+			"flex aspect-square md:aspect-video w-screen md:w-full items-center justify-center bg-background bg-grid-black/[0.2] dark:bg-grid-white/[0.2]",
 			className,
 		)}
 	>
