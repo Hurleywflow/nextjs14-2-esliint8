@@ -44,9 +44,6 @@ const Loading = (className: Props): JSX.Element => (
 				</div>
 			</div>
 		</div>
-		{/* <i>
-			<LoaderCircle className='animate-spin' size={36} color='#818CF8' />
-		</i> */}
 	</div>
 );
 
