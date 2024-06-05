@@ -107,7 +107,7 @@ const RootLayout = ({
 			<head />
 			<body
 				className={cn(
-					"h-fit m-0 p-0 bg-background font-sans antialiased bg-dot-black/[0.2]  dark:bg-dot-white/[0.2] overflow-x-clip",
+					"min-h-fit m-0 p-0 bg-background font-sans antialiased bg-dot-black/[0.2]  dark:bg-dot-white/[0.2] overflow-x-clip",
 					fontSans.variable,
 				)}
 			>
