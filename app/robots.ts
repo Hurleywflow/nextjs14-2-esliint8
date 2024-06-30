@@ -4,10 +4,10 @@ export default function robots(): MetadataRoute.Robots {
 	return {
 		rules: {
 			userAgent: "*",
-			allow: "/",
+			allow: ["/", "/blogs"],
 			// not allow to show in google
-			disallow: "/studio",
+			// disallow: "/studio",
 		},
-		sitemap: "https://yourdomainname/sitemap.xml",
+		sitemap: `${process.env.BASE_URL}/sitemap.xml`,
 	};
 }

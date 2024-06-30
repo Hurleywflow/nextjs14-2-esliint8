@@ -8,6 +8,15 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import { Inter as FontSans } from "next/font/google";
+import dynamic from "next/dynamic";
+import Loading from "@/components/cc/loading/Loading";
+const DynamicFooter = dynamic(
+	async () => import("@/components/cc/footer/footer"),
+	{
+		ssr: true,
+		loading: () => <Loading />,
+	},
+);
 import "./globals.css";
 import "@splidejs/react-splide/css";
 
@@ -101,7 +110,7 @@ const RootLayout = ({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
-}>): JSX.Element => {
+}>) => {
 	return (
 		<html lang='en' className='h-full ' suppressHydrationWarning>
 			<head />
@@ -114,7 +123,7 @@ const RootLayout = ({
 				<ThemeProvider attribute='class' enableSystem disableTransitionOnChange>
 					<Navbar />
 					{children}
-					<Footer />
+					<DynamicFooter />
 					<Toaster richColors />
 				</ThemeProvider>
 				<Analytics />

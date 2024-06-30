@@ -3,14 +3,15 @@ import Carousel from "@/components/cc/carousel/carousel";
 import { Container } from "@/components/cc/container/container";
 import VerticalParallaxTiltScroll from "@/components/cc/images-utils/verticalScroll/VerticalParallaxTiltScroll";
 import { InfiniteMovingCardsDemo } from "@/components/cc/infinite-moving-cards/InfiniteMovingCardsDemo";
-import Loading from "@/components/cc/loading/Loading";
+import Loading from "./loading";
 import SkewScroll from "@/components/cc/skewScroll/SkewScroll";
 import { Suspense } from "react";
 
+
 import { CarouselWithThumbnails } from "@/components/cc/carousel/SplideThumbnailsCarousel";
 
-const Home = (): JSX.Element => {
-	// const Home = async (): JSX.Element => {
+const Home = () => {
+	// const Home = async () => {
 	// 	await new Promise((resolve) => {
 	// 		setTimeout(resolve, 5000);
 	// 	});
@@ -19,33 +20,33 @@ const Home = (): JSX.Element => {
 			<Container>
 				<div className='relative w-full'>
 					<div className='sticky top-0 flex h-fit min-h-screen w-full items-center justify-center bg-red-400'>
-						<Suspense fallback={<Loading className='h-fit min-h-screen' />}>
+						<Suspense fallback={<Loading />}>
 							<Carousel />
 						</Suspense>
 					</div>
 
 					<div className='sticky top-0 flex h-fit min-h-screen w-full items-center justify-center bg-blue-400'>
-						<Suspense fallback={<Loading className='h-fit min-h-screen' />}>
+						<Suspense fallback={<Loading />}>
 							<SkewScroll />
 						</Suspense>
 					</div>
 					<div className='sticky top-0 flex h-fit min-h-screen w-full items-center justify-center bg-blue-400'>
-						<Suspense fallback={<Loading className='h-fit min-h-screen' />}>
+						<Suspense fallback={<Loading />}>
 							<CarouselOrientation />
 						</Suspense>
 					</div>
 					<div className='sticky top-0 flex h-fit min-h-screen w-full items-center justify-center bg-blue-400'>
-						<Suspense fallback={<Loading className='h-fit min-h-screen' />}>
+						<Suspense fallback={<Loading />}>
 							<VerticalParallaxTiltScroll />
 						</Suspense>
 					</div>
 					<div className='sticky top-0 flex h-fit min-h-screen w-full items-center justify-center bg-blue-400'>
-						<Suspense fallback={<Loading className='h-fit min-h-screen' />}>
+						<Suspense fallback={<Loading />}>
 							<InfiniteMovingCardsDemo />
 						</Suspense>
 					</div>
 					<div className='sticky top-0 flex h-fit min-h-screen w-full items-center justify-center bg-blue-400'>
-						<Suspense fallback={<Loading className='h-fit min-h-screen' />}>
+						<Suspense fallback={<Loading />}>
 							<CarouselWithThumbnails />
 						</Suspense>
 					</div>
